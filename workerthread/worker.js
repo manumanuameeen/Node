@@ -1,10 +1,14 @@
 
-import {parentPort} from "worker_threads";
+
+import {parentPort,threadId} from "worker_threads"
+
 
 parentPort.on("message",(msg)=>{
-    let  sum = 0 
-    for(let i =0 ; i<1e8;i++){
-        sum+=i
+    console.log(`mes:${msg} threadId:${threadId}`);
+    let sum =0 ;
+    for(let i =0 ; i< 1e8;i++){
+        sum+=i+threadId;
     }
-    parentPort.postMessage("worker recevied "+msg,`sum:${sum}`)
+    parentPort.postMessage("threadId:"+threadId+" sum: "+sum+threadId)
+
 })
