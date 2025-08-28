@@ -4,5 +4,6 @@ fs.writeFile("./fs.files/writefile.com"," Hai iam mohammed ameen",(err)=>{
     if(err){
         console.error(err);
     }
+  console.log("writed successfully");
   
 })
